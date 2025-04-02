@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{  user.name  }}</title>
+</head>
+<body>
+    <h2>Пользователь {{  user.name  }}</h2>
+    <h3>Обо мне:</h3>
+    <h5>{{  user.description  }}</h5>
+    <a href="{{ url_for('user.list') }}">Назад</a>
+</body>
+</html>
