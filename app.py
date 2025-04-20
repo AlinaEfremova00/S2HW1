@@ -1,10 +1,14 @@
 import os
 from flask import Flask
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
 from models import db, create_table
 from views import (
     UserView, UserList, MainView, UserCreate, 
     ErrorView, UserEdit, UserDelete
 )
+
+migrate = Migrate()
 
 
 def create_app():
@@ -14,6 +18,7 @@ def create_app():
 
     db.init_app(app)
     create_table(app)
+    migrate.init_app(app, db)
 
     # Регистрация маршрутов
     app.add_url_rule('/', view_func=MainView.as_view('main', engine=db))
