@@ -11,7 +11,6 @@ from werkzeug import Response
 
 from forms import UserCreateForm, UserEditForm, UserDeleteForm
 from models import User
-from models import Item
 
 
 class BaseView(MethodView):
