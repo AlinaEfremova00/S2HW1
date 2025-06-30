@@ -10,6 +10,14 @@ class Base(DeclarativeBase):
 
 db = SQLAlchemy(model_class=Base)
 
+class Item(db.Model):
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(db.String(100), nullable=False)
+    description: Mapped[str] = mapped_column(db.String(200), nullable=False)
+
+    def __repr__(self):
+        return f"<Item(name={self.name})>"
+
 
 class User(db.Model):
     """Модель пользователя"""
